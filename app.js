@@ -8,7 +8,6 @@ const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const port = 3000 || process.env.PORT;
 const passport = require('passport');
 const session = require('express-session');
 const flash = require('express-flash');
@@ -66,6 +65,6 @@ app.use('/products' , isSignedIn, productRouter);
 
 
 
-app.listen(port , () => {
+app.listen(process.env.PORT || 3000 , () => {
     console.log(`Server Started on port ${port}`);
 } )
