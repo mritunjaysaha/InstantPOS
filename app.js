@@ -60,8 +60,8 @@ const mainRouter = require('./controllers/main');
 const productRouter = require('./controllers/product');
 
 app.use('/' , homeRouter);
-app.use('/main' ,  mainRouter);
-app.use('/products' , productRouter);
+app.use('/main' , isSignedIn ,  mainRouter);
+app.use('/products' , isSignedIn, productRouter);
 
 
 
