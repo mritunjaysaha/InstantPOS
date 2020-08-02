@@ -1,0 +1,20 @@
+.error-small {
+    color: rgb(212, 99, 99);
+    
+}
+
+.error-border {
+    border: 2px solid rgb(212, 84, 84);
+    border-radius: 2px;
+}
+
+.success-border {
+    border: 2px solid rgb(141, 241, 141);
+    border-radius: 2px;
+}
+
+.down {
+    position: absolute;
+    left: 0px;
+    bottom: -15px;  
+}
