@@ -57,10 +57,12 @@ const {isSignedIn , } = require('./middlewares/auth');
 const homeRouter = require('./controllers/home');
 const mainRouter = require('./controllers/main');
 const productRouter = require('./controllers/product');
+const orderRouter = require('./controllers/order');
 
 app.use('/' , homeRouter);
 app.use('/main' , isSignedIn ,  mainRouter);
 app.use('/products' , isSignedIn, productRouter);
+app.use('/orders' , orderRouter);
 
 
 

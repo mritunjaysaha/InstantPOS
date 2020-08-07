@@ -1,0 +1,16 @@
+<%- include('../partials/header.ejs')  %> 
+
+
+<div class="container-fluid">
+    <div class="container">
+        <form action="localhost:3000/products/search" method="GET">
+        <div class="input-group mb-3 mt-5">
+            <span class="input-group-text" id="basic-addon1">@</span>
+            <input type="text" class="form-control" placeholder="Search By Entering A Username" aria-label="Username" aria-describedby="basic-addon1" id="search" name="name" >
+          </div>
+        </form>
+          <div class="match-list">
+           
+          </div>          
+    </div>
+</div>
