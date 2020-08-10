@@ -11,13 +11,27 @@ router.get('/' , async ( req , res ) => {
 });
 
 router.get('/search' , async ( req , res ) => {
-    let query = new RegExp(`${req.query}` , 'i')
+    console.log(req.query);
+    let query = new RegExp(`${req.query.name}` , 'i')
     
     try {
-        const productFilter = await Product.find({name:query} , {'name': 1}).sort({'createdAt': -1}).sort({'updatedAt': -1});
+        const productFilter = await Product.find({name:query}).sort({'createdAt': -1}).sort({'updatedAt': -1});
+        let products = [];
         if (productFilter && productFilter.length > 0) {
-            console.log(productFilter)
+            productFilter.forEach(product => {
+                const { name , weight , salePrice , _id } = product;
+                let productDetails = {
+                    product_id: _id,
+                    product_name: name,
+                    product_weight: weight , 
+                    product_price: salePrice
+                }
+                products.push(productDetails);
+            })
         }
+        res.json({
+            products: products
+        })
     } catch (e) {
         console.log(e)
     }
